@@ -101,18 +101,11 @@ class BaseCords(utils.Cog):
         embedvar = discord.Embed(title = f'Succesfully Removed The Role!', description = f'Succesfully Removed {roletoremove.mention} From {member.mention}!', color=0x059fff)
         await ctx.send(embed = embedvar)
         
-    @utils.command()
-    async def roll(self, ctx:utils.Context, sides):
-        '''Roll A Dice And Go!'''
-        await ctx.send(f'Grabbing The D{sides}')
-        for _ in range(1):
-            roll = randint(1, int(sides))
-            
-            
-        sembed = discord.Embed(title = f'I Rolled Your D{sides}', description = f'***These Results Are Purely Random***', color = 0x059fff)
-        sembed.add_field(name='Roll: ', value=roll, inline=True)
-        sembed.add_field(name='Dice: ', value=f'D{sides}', inline=True)
-        await ctx.send(embed = sembed)
+    @utils.command(aliases=['wnr'])
+    async def worldnewsrole(self, ctx:utils.Context):
+        '''Gives you the world news role'''
+        await ctx.author.add_roles(ctx.guild.get_role(762451734190227466)
+        await ctx.send('Gave you the world news role.')
         
     @utils.command()
     async def guidelines(self, ctx:utils.Context, choice=None):
@@ -125,6 +118,10 @@ class BaseCords(utils.Cog):
             sembed = discord.Embed(title = f'Roleplay Guidlines / Regulations', description = f'***Available Categorys:***', color = 0x059fff)
             sembed.add_field(name=f'`combat`', value=f'General Combat Guidelines', inline=True)
             await ctx.send(embed = sembed)
+    @utils.command()
+    async def worldnewsrole    
+
+
 """
     @utils.command()
     async def wiki(self, ctx:utils.Context, *, countryname):
